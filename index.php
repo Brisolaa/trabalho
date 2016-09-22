@@ -10,55 +10,40 @@
 		<div class="list">
 
 		</div>
-		<form>
-			<div class="table">
-				<div class="left">
-					Nome da namorada
+		<div class="table">
+			<div class="left">
+				Selecione para excluir
+			</div>
+			<div class="midle">
+				Nome da namorada
+			</div>
+			<div class="right">
+				Cor do cabelo
+			</div>
+			<div class="lista">
+				<div id="contentHTML">
+
 				</div>
-				<div class="right">
-					Cor do cabelo
-				</div>
-				<div class="lista">
-					<form>
-						<div class="container-desc">
-							<div class="nome">
-								Nome
-							</div>
-							<div class="cor">
-								<input type="text" value="Morena">
-							</div>
+					<div class="container-desc-add">
+						<div class="nome nome-add">
+							<input type="text" placeholder="Nome da namorada">
 						</div>
-						<div class="container-desc">
-							<div class="nome">
-								Nome
-							</div>
-							<div class="cor">
-								<input type="text" value="Morena">
-							</div>
+						<div class="cor cor-add">
+							<input type="text" placeholder="Cor do cabelo">
 						</div>
-						<div class="container-desc">
-							<div class="nome">
-								Nome
-							</div>
-							<div class="cor">
-								<input type="text" value="Morena">
-							</div>
-						</div>
-						<div class="button">
-							<select>
-								<option>Morena</option>
-								<option>Loira</option>
-								<option>Ruiva</option>
-							</select>
-							<input type="submit" Value="Pesquisar">
-							<input type="submit" Value="Adicionar">
-							<input type="submit" Value="Salvar edição">
-							<input type="submit" Value="Excluir">
-						</div>
-					</form>
+					</div>
+				<div class="button">
+					<div class="options-content">
+					</div>
+					<button id="pesquisar">Pesquisar</button>
+					<button id="adicionar">Adicionar</button>
+					<button id="salvar">Salvar edição</button>
+					<button id="excluir">Excluir</button>
 				</div>
 			</div>
-		</form>
+		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
