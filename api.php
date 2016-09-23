@@ -1,5 +1,5 @@
 <?php
-	$db = new mysqli('localhost', 'root', '123', 'felipe');
+	$db = new mysqli('localhost', 'root', '123', 'bd_namoradas');
 	if(mysqli_connect_errno()){
 	 	echo mysqli_connect_error();
 	}
@@ -146,9 +146,9 @@
 			    $result->free();
 			}
 		}
-		//var_dump($salvar);
 		$db->close();
 	}
+
 	elseif(isset($_REQUEST['excluir'])){
 		$excluir = $_GET['excluir'];
 		$total = count($excluir);
