@@ -61,7 +61,11 @@ $(document).ready(function(){
 			   nome.push( $(this).html());
 			});
 			$(".container-desc .cor input").each(function (){
-			   cor.push( $(this).val());
+			   if($(this).val() == ""){
+			   		cor.push( $(".cor .show_cor" ).html());
+			   }else{
+			   		cor.push( $(this).val());
+			   }
 			});
 			$("input[name='checks[]']").each(function (){
 			   id.push( $(this).val());
@@ -69,6 +73,7 @@ $(document).ready(function(){
 			salvar.nome = nome;
 			salvar.cor = cor;
 			salvar.id = id;
+			console.log(salvar);
 			$.ajax({
 	       		url: "http://localhost/felipe/api.php",
 	       		data: {salvar},
@@ -76,7 +81,7 @@ $(document).ready(function(){
 	       			$( "#contentHTML" ).empty();
    					$( "#contentHTML" ).append(result);
 	        	}
-	    	});
+	    	});	
        	}
        	else if(id == "excluir"){
        		var excluir = new Array();

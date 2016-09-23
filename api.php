@@ -1,5 +1,5 @@
 <?php
-	$db = new mysqli('localhost', 'root', '123', 'felipe');
+	$db = new mysqli('localhost', 'root', 'RafaelaLinda', 'felipe');
 	if(mysqli_connect_errno()){
 	 	echo mysqli_connect_error();
 	}
@@ -15,7 +15,8 @@
 							'.$row["nome"].'
 						</div>
 						<div class="cor">
-							<input type="text" value="'.$row["cor"].'">
+							<div class="show_cor">'.$row["cor"].'</div>
+							<input type="text" class="edit">
 						</div>
 					</div>';
 		    }
@@ -62,7 +63,8 @@
 							'.$row["nome"].'
 						</div>
 						<div class="cor">
-							<input type="text" value="'.$row["cor"].'">
+							<div class="show_cor">'.$row["cor"].'</div>
+							<input type="text" class="edit">
 						</div>
 					</div>';
 		    }
@@ -85,7 +87,8 @@
 								'.$row["nome"].'
 							</div>
 							<div class="cor">
-								<input type="text" value="'.$row["cor"].'">
+								<div class="show_cor">'.$row["cor"].'</div>
+							<input type="text" class="edit">
 							</div>
 						</div>';
 			    }
@@ -105,7 +108,8 @@
 								'.$row["nome"].'
 							</div>
 							<div class="cor">
-								<input type="text" value="'.$row["cor"].'">
+								<div class="show_cor">'.$row["cor"].'</div>
+							<input type="text" class="edit">
 							</div>
 						</div>';
 			    }
@@ -122,8 +126,8 @@
 		$id = $salvar['id'];
 		for ($i = 0; $i <= $total - 1; $i++) {
     		//echo "".$nome[$i]." é ".$cor[$i].".<br/>";
-			$result = $db->query("UPDATE `namoradas` SET cor='$cor[$i]' WHERE nome='$nome[$i]'");
-			$result = $db->query("SELECT * FROM `namoradas` WHERE id=$id[$i]");
+			$result = $db->query("UPDATE `namoradas` SET cor='$cor[$i]' WHERE id='$id[$i]'");
+			$result = $db->query("SELECT * FROM `namoradas` WHERE id='$id[$i]'");
 			if($result){
 			    while ($row = $result->fetch_assoc()){
 			        echo '<div class="container-desc">
@@ -134,21 +138,24 @@
 								'.$row["nome"].'
 							</div>
 							<div class="cor">
-								<input type="text" value="'.$row["cor"].'">
+								<div class="show_cor">'.$row["cor"].'</div>
+								<input type="text" class="edit">
 							</div>
 						</div>';
 			    }
 			    $result->free();
 			}
 		}
+		//var_dump($salvar);
 		$db->close();
 	}
 	elseif(isset($_REQUEST['excluir'])){
 		$excluir = $_GET['excluir'];
 		$total = count($excluir);
 		for ($i = 0; $i <= $total - 1; $i++) {
-			$result = $db->query("DELETE FROM `namoradas` WHERE id=$excluir[$i]");
-			$result = $db->query("SELECT * FROM `namoradas`");
+			$db->query("DELETE FROM `namoradas` WHERE id=$excluir[$i]");
+		}
+		$result = $db->query("SELECT * FROM `namoradas`");
 			if($result){
 			    while ($row = $result->fetch_assoc()){
 			        echo '<div class="container-desc">
@@ -159,13 +166,13 @@
 								'.$row["nome"].'
 							</div>
 							<div class="cor">
-								<input type="text" value="'.$row["cor"].'">
+								<div class="show_cor">'.$row["cor"].'</div>
+								<input type="text" class="edit">
 							</div>
 						</div>';
 			    }
 			    $result->free();
 			}
-		}
 		$db->close();
 	}
 ?>

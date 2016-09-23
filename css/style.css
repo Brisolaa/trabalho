@@ -63,3 +63,10 @@ input[type="text"]{
 input{
 	text-align: center;
 }
+.cor div, .cor input{
+	width:  50%;
+	float:  left;
+}
+.cor .edit{
+	border:  1px solid black;
+}
